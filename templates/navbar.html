@@ -1,0 +1,36 @@
+{% load static %}
+
+<header class="header">
+
+        <!-- Logo -->
+    <div class="container">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'images/logo.png' %} " alt="Trad Archive Logo" />
+        </a>
+
+        <!-- Navigation bar -->
+        <nav class="nav">
+            <ul>
+                <li class="nav_item">
+                    <a href = "{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav_item">
+                    <a href = "#">Profile</a>
+                </li>
+                <li class="nav_item">
+                    <a href = "#">Messages</a>
+                </li>
+                <li class="nav_item">
+                    <a href = "#">Favorites</a>
+                </li>
+                <li class="nav_item">
+                    <a href = "#">Search</a>
+                </li>
+                <li class="nav_item">
+                    <a href="#" class="btn">Login/Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</header>

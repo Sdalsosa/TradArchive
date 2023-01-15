@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" /> 
+
+  <title>Trad Archive - A repository of Irish Traditional Music</title>
+</head>
+
+        <!-- Navigation Section-->
+
+<header>{% include 'navbar.html' %}</header>
+
+<body>
+    <main>
+        {% block content %}
+
+        <!-- Content Goes here -->
+
+        {% endblock content %}
+    
+    </main>
+
+        <!-- Footer Section -->
+
+    <footer class="footer">
+        <div class="social-networks">
+          <a
+            href="http://facebook.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Facebook page in a new tab"
+            >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a
+            href="http://twitter.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Twitter page in a new tab"
+            >
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            href="http://tiktok.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our tiktok in a new tab"
+            >
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a
+            href="http://instagram.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Instagram page in a new tab"
+            >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+    </footer>
+  
+            <!-- font awesome script for social media icons -->
+      
+    <script src="https://kit.fontawesome.com/e55eab4b8b.js"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
