@@ -22,7 +22,7 @@ class TuneDetail(View):
 
         return render(
             request,
-            "#",
+            "tune_detail.html",
             {
                 "tune": tune,
                 "comments": comments,

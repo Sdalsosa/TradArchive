@@ -2,4 +2,43 @@
 
 {% block content %}
 
+<section class="hero-section">
+  <div>
+    <div class="hero-box">
+      <h2>SEE OUR UPLOADED <span>TUNES</span></h2>
+      <h2>AND ADD SOME OF YOUR OWN FAVORITES</h2>
+    </div>
+
+    <div class="hero-search">
+      <form class="hero-form" action="#" method="get">
+        <div>
+          <label for="tune-search">Search Tunes</label>
+          <input class="input-text" id="tune-search" type="text" name="text"
+            placeholder="Search by tune name" />
+        </div>
+
+        <input class="btn hero-btn" type="submit" value="Search" />
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- loop through existing tunes -->
+
+<section class="tunelist">
+  <div class="card-container">
+    {% for tune in tune_list %}
+    <div class="card">
+        <a href=" {% url 'tune_detail' tune.slug %} ">
+            <h2>{{ tune.tune_type }}: {{ tune.title }}</h2>
+        </a>
+        <p>Composed By: {{ tune.composer }}</p>
+        <p>Author: {{ tune.author }}</p>
+        <p>Added: {{ tune.created_on}}</p>
+        <i class="fa-light fa-heart"> {{ tune.number_of_likes }}</i>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<h1>{{ tune.title }}</h1>
+
+<!-- Tune author goes before the | the tune's created date goes after -->
+<p>{{ tune.author }} | {{ tune.created_on }}</p>
+
+<div>
+    <!-- The tune content  -->
+    <p>{{ tune.content | safe }}</p>
+    <strong>Likes: {{ tune.number_of_likes }} </strong>
+    <div >
+        {% with comments.count as total_comments %}
+        <strong>Comments: {{ total_comments }}</strong>
+        {% endwith %}
+    </div>
+
+    <!-- The comments about the tune  -->
+    <h3>Comments:</h3>
+    <div>
+        {% for comment in comments %}
+        <div>
+            <p>{{ comment.name }}
+                <span>
+                    {{ comment.created_on }}
+                </span> wrote:
+            </p>
+            {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
