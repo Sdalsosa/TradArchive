@@ -26,8 +26,8 @@ class Tune(models.Model):
     title = models.CharField(max_length=200, unique=True)
     tune_type = models.CharField(
         max_length=9, choices=TUNE_TYPE, default='Jig')
-    composer = models.CharField(max_length=200, unique=True)
-    learned_from = models.CharField(max_length=200, unique=True)
+    composer = models.CharField(max_length=200, unique=False)
+    learned_from = models.CharField(max_length=200, unique=False)
     content = models.TextField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -50,7 +50,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Tune, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(max_length=80)
-    email = models.EmailField()
+    email = models.EmailField(blank=True)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)

@@ -1,34 +1,35 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 
+{% block content %}
 
-<h1>{{ tune.title }}</h1>
+<section class="tune-detail-container">
+    <div class="tune-comments-container">
+        <div class="tune">
 
-<!-- Tune author goes before the | the tune's created date goes after -->
-<p>{{ tune.author }} | {{ tune.created_on }}</p>
+            <h1>{{ tune.title }}</h1>
+            <h3 class="composer">A {{ tune.tune_type }} composed by: {{ tune.composer }}</h3>
 
-<div>
-    <!-- The tune content  -->
-    <p>{{ tune.content | safe }}</p>
-    <strong>Likes: {{ tune.number_of_likes }} </strong>
-    <div >
-        {% with comments.count as total_comments %}
-        <strong>Comments: {{ total_comments }}</strong>
-        {% endwith %}
-    </div>
-
-    <!-- The comments about the tune  -->
-    <h3>Comments:</h3>
-    <div>
-        {% for comment in comments %}
-        <div>
-            <p>{{ comment.name }}
-                <span>
-                    {{ comment.created_on }}
-                </span> wrote:
-            </p>
-            {{ comment.body | linebreaks }}
+            <!-- The tune content  -->
+            <p id="tune-notes">{{ tune.content | safe }}</p>
+            <p>Added by: {{ tune.author }} on {{ tune.created_on }}</p>
+            <strong>Likes: {{ tune.number_of_likes }} </strong>
         </div>
-        {% endfor %}
+
+        <div class="comments-container">
+        <!-- The comments about the tune  -->
+            {% with comments.count as total_comments %}
+            <h3>Comments: {{ total_comments }}</h3>
+            {% endwith %}
+            <div>
+                {% for comment in comments %}
+                <div class= "comment">
+                    <p><span>{{ comment.name }}</span>
+                        wrote: {{ comment.body | linebreaks }}</p>
+                    <p id="comment-date">{{ comment.created_on }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    
+</section>
 {% endblock content %}
